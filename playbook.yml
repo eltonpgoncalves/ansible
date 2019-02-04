@@ -1,0 +1,6 @@
+---
+- hosts: all
+  user: root
+  roles:
+    - role: web-app-role
+    - role: nginx-role

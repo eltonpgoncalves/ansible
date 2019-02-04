@@ -1,0 +1,23 @@
+---
+- name: Import role to install Docker
+  import_role:
+    name: docker-role
+
+- name: Pull an image with nginx
+  docker_image:
+    name: nginx:latest
+
+- name: Replace nginx load-balancer config to volume for docker container
+  template:
+    src=load-balancer.conf
+    dest=/etc/docker/nginx/load-balancer.conf
+
+- name: Run docker container with load-balancer
+  docker_container:
+    name: nginx-balancer
+    image: nginx:latest
+    state: started
+    ports:
+      - "80:80"
+    volumes:
+      - /etc/docker/nginx:/etc/nginx/conf.d
