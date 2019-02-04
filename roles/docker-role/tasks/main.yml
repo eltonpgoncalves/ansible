@@ -39,3 +39,7 @@
 - name: Install docker python module
   pip:
     name: docker
+
+- name: Create a network
+  docker_network:
+    name: my-network

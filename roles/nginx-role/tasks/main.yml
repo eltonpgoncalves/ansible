@@ -16,6 +16,8 @@
   docker_container:
     name: nginx-balancer
     image: nginx:latest
+    networks:
+      - name: my-network
     state: started
     ports:
       - "80:80"

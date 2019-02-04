@@ -17,6 +17,8 @@
   docker_container:
     name: "web-app-{{ item.num }}"
     image: konstantin009/exam:web-app-latest
+    networks:
+      - name: my-network
     state: started
     ports:
       - "{{ item.port }}:5000"
