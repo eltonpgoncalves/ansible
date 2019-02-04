@@ -1,11 +1,12 @@
 node {
+    
     stage('Clone repository') {
         checkout scm
     }
     
-    stage('Roles install') {
+    stage('Install roles') {
         sh "ansible-galaxy install --role-file requirements.yml"
-        }
+    }
 
     stage('Run ansible playbook') {
         ansiblePlaybook(inventory: 'inventory', playbook: 'playbook.yml')
