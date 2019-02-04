@@ -1,0 +1,6 @@
+- src: konstantin009.docker_role
+  name: docker-role
+- src: konstantin009.nginx_role
+  name: nginx-role
+- src: konstantin009.web_app_role
+  name: web-app-role
