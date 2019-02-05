@@ -14,7 +14,7 @@ node {
     
     stage('Integration test') {
         sh """
-        response=\$(ssh -i ~/.ssh/ansible root@192.168.56.102 curl -s -o /dev/null -w "%{http_code}" localhost:80)
+        response=\$(ssh -i ~/.ssh/ansible root@192.168.56.103 curl -s -o /dev/null -w "%{http_code}" localhost:80)
         if [ "\$response" != "200" ]
         then
           exit 1
